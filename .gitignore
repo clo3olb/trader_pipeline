@@ -5,3 +5,6 @@ trader_pipeline
 *.pyc
 
 .DS_Store
+
+# no pycache
+__pycache__/
