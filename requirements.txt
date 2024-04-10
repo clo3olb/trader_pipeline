@@ -1,6 +1,12 @@
 pandas
 numpy
 requests
+os
+
+# sentiment_analysis.py
+torch
+transformers
+
 python-dotenv
 torch==1.11.0
 scikit-learn

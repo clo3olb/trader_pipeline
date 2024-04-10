@@ -4,5 +4,7 @@ trader_pipeline
 *.env
 *.pyc
 
+.DS_Store
+
 # no pycache
 __pycache__/
