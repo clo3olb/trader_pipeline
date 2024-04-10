@@ -3,3 +3,6 @@ trader_pipeline
 
 *.env
 *.pyc
+
+# no pycache
+__pycache__/
