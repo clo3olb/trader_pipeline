@@ -1,5 +1,5 @@
 from dotenv import dotenv_values
-from collection import alphavantage
+import alphavantage
 
 # Load the environment variables from the .env file
 env_vars = dotenv_values("local.env")
@@ -14,7 +14,7 @@ symbols = [
 
 
 interval = "15min"
-month = "2022-01"
+month = "2022-03"
 symbol = "AAPL"
 api_key = env_vars['ALPHA_VANTAGE_API_KEY']
 file_path = "./data/alphavantage/2022-01_AAPL.csv"
