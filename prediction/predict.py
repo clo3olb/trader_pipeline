@@ -45,6 +45,6 @@ def predict(setting: str, data_path: str):
     return preds
 
 
-setting = 'AAPL_336_96_PatchTST_custom_ftM_sl336_ll48_pl96_dm128_nh16_el3_dl1_df256_fc1_ebtimeF_dtTrue_Exp_0'
+setting = 'PatchTST_AAPL_336_96'
 preds = predict(setting)
 print(preds)
