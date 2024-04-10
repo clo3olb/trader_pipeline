@@ -267,7 +267,7 @@ def fetchCrudeOildata(interval: str, oil_type: str, api_key: str) -> pd.DataFram
     return data_frame
 
 
-def getMonthlyData(symbol: str, interval: str, month: str, api_key: str, result_file: str) -> pd.DataFrame:
+def getMonthlyData(symbol: str, interval: str, month: str, api_key: str) -> pd.DataFrame:
     price_data = fetchIntradyPriceData(
         symbol, interval, month, api_key=api_key)
     sma_10_data = fetchSMAData(symbol, interval, month, 10, api_key=api_key)
@@ -300,20 +300,3 @@ def getMonthlyData(symbol: str, interval: str, month: str, api_key: str, result_
     df.rename(columns={"Date": "Timestamp"}, inplace=True)
 
     return df
-
-
-def getMonths(start: str, end: str):
-    start_year, start_month = map(int, start.split('-'))
-    end_year, end_month = map(int, end.split('-'))
-
-    months = []
-
-    for year in range(start_year, end_year + 1):
-        for month in range(1, 13):
-            if year == start_year and month < start_month:
-                continue
-            if year == end_year and month > end_month:
-                break
-            months.append(f"{year}-{month:02d}")
-
-    return months
