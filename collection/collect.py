@@ -17,8 +17,10 @@ interval = "15min"
 month = "2022-03"
 symbol = "AAPL"
 api_key = env_vars['ALPHA_VANTAGE_API_KEY']
-file_path = "./data/alphavantage/2022-01_AAPL.csv"
+file_path = "./dataset/2022-01_AAPL.csv"
 
 
 data = alphavantage.getMonthlyData(symbol, interval, month, api_key)
 print(data.head())
+
+data.to_csv(file_path, index=False)
