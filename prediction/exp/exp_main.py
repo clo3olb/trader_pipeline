@@ -363,7 +363,11 @@ class Exp_Main(Exp_Basic):
         if load:
             path = os.path.join(self.args.result_path, setting, 'checkpoints')
             best_model_path = path + '/' + 'checkpoint.pth'
-            self.model.load_state_dict(torch.load(best_model_path))
+            if not torch.cuda.is_available():
+                self.model.load_state_dict(torch.load(
+                    best_model_path, map_location=torch.device('cpu')))
+            else:
+                self.model.load_state_dict(torch.load(best_model_path))
 
         preds = []
 
