@@ -1,7 +1,4 @@
 from dotenv import dotenv_values
-from collection.alphavantage import getMonths, createMergedCSV, fetchDailyPriceData
-import os
-import pandas as pd
 from collection import alphavantage
 
 # Load the environment variables from the .env file
@@ -18,8 +15,10 @@ symbols = [
 
 interval = "15min"
 month = "2022-01"
+symbol = "AAPL"
 api_key = env_vars['ALPHA_VANTAGE_API_KEY']
 file_path = "./data/alphavantage/2022-01_AAPL.csv"
 
-data = alphavantage.getMonthlyData("AAPL", interval, month, api_key, file_path)
+
+data = alphavantage.getMonthlyData(symbol, interval, month, api_key)
 print(data.head())
