@@ -19,7 +19,8 @@ def predict(setting: str, data_path: str):
     # check GPU status and exit if not available
     if not torch.cuda.is_available():
         print('GPU is not available')
-        exit()
+        print("Use CPU for prediction")
+        # exit()
 
     args.use_gpu = True if torch.cuda.is_available() and args.use_gpu else False
 
@@ -32,8 +33,11 @@ def predict(setting: str, data_path: str):
     Exp = Exp_Main
 
     # change data path to the one to predict
+    args.result_path = './prediction/results/'
+    args.root_path = './dataset/'
     args.data_path = data_path
     args.date_header = 'Timestamp'
+    args.batch_size = 1
 
     exp = Exp(args)  # set experiments
     print(
@@ -46,5 +50,6 @@ def predict(setting: str, data_path: str):
 
 
 setting = 'PatchTST_AAPL_336_96'
-preds = predict(setting)
+data_path = '2022-01_AAPL.csv'
+preds = predict(setting, data_path)
 print(preds)
